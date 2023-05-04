@@ -5,13 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MBTI PET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/inputMBTI.css" />
   </head>
   <body>
-    <section>
+    <section class="inputSection">
       <h1>당신의 MBTI를 입력해주세요</h1>
       <form action="" name="input" method="get">
-        <select name="" id="">
-          <option value="">당신의 MBTI는?</option>
+        <select name="mbti" id="mbti">
+          <option value="">--당신의 MBTI는?--</option>
           <option value="esfp">ESFP</option>
           <option value="esfj">ESFJ</option>
           <option value="estp">ESTP</option>
@@ -29,9 +33,9 @@
           <option value="intp">INTP</option>
           <option value="intj">INTJ</option>
         </select>
-        <button>나와 잘맞는 강아지는?</button>
       </form>
-      <article id="dog_description"></article>
+      <button class="submit">나와 잘맞는 &#x1F436; 찾기</button>
+      <article class="dog_description"></article>
     </section>
   </body>
 </html>

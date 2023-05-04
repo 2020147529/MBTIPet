@@ -1,1 +1,90 @@
+body {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  position: fixed;
+  background-color: #ffe3e2;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
+.inputSection {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputSection h1 {
+  width: 100%;
+  font-family: "Gamja Flower", cursive;
+  font-size: 4em;
+}
+
+.inputSection #mbti {
+  font-size: 1.2rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.inputSection #mbti:focus {
+  border: 1px solid #f9c4d2;
+  box-sizing: border-box;
+  border-radius: 10px;
+  outline: 3px solid #f9c4d2;
+  border-radius: 10px;
+}
+
+.submit {
+  display: block;
+  width: 200px;
+  margin: 3rem;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  text-decoration: none;
+  font-weight: 1000;
+  color: #382b22;
+  text-transform: uppercase;
+  padding: 1.25em 2em;
+  background: #fff0f0;
+  border: 2px solid #b18597;
+  border-radius: 0.75em;
+  transform-style: preserve-3d;
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+    background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+.submit:hover {
+  background: #ffe9e9;
+  transform: translate(0, 0.25em);
+}
+.submit::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f9c4d2;
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+  transform: translate3d(0, 0.75em, -1em);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+    box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+.submit:hover::before {
+  box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+  transform: translate3d(0, 0.5em, -1em);
+}
+.submit:active {
+  background: #ffe9e9;
+  transform: translate(0em, 0.75em);
+}
+.submit:active::before {
+  box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+  transform: translate3d(0, 0, -1em);
+}
