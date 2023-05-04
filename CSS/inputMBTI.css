@@ -4,7 +4,7 @@ body {
   justify-content: center;
   position: fixed;
   background-color: #ffe3e2;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -37,10 +37,18 @@ body {
   border-radius: 10px;
 }
 
+#dogDescription {
+  font-family: "Gamja Flower", cursive;
+  width: 1000px;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
 .submit {
   display: block;
   width: 200px;
   margin: 3rem;
+  margin-bottom: 2rem;
   cursor: pointer;
   outline: none;
   border: 0;
