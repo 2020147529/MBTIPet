@@ -1,0 +1,19 @@
+body, #dogresult, .button_container{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+#dogresult {
+    border: solid 1px black;
+    flex-direction: column;   
+}
+
+#dogresult>*{
+    text-align: center;
+}
+
+img{
+    width:80%;
+    border-radius:10%;
+}
