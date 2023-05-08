@@ -11,13 +11,13 @@
       href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/MBTIPet/CSS/inputMBTI.css" />
-    <script src="/MBTIPet/SCRIPT/fact.json"></script>
+    <link rel="stylesheet" href="../CSS/inputMBTI.css" />
+    <script src="../SCRIPT/fact.json"></script>
   </head>
   <body>
     <section class="inputSection">
       <h1>당신의 MBTI를 입력해주세요</h1>
-      <form action="" name="input" method="get">
+      <form action="" name="input" method="get" id="form">
         <select name="mbti" id="mbti">
           <option value="">--당신의 MBTI는?--</option>
           <option value="esfp">ESFP</option>
@@ -38,11 +38,11 @@
           <option value="intj">INTJ</option>
         </select>
       </form>
-      <button class="submit">나와 잘맞는 &#x1F436; 찾기</button>
+      <button class="submit" id="submit">나와 잘맞는 &#x1F436; 찾기</button>
       <h2>유기견에 관한 사실들</h2>
       <article id="dogDescription"></article>
       <button class="submit" id="refresh-button">&#128049;</button>
     </section>
-    <script src="/MBTIPet/SCRIPT/inputMBTI.js"></script>
+    <script src="../SCRIPT/inputMBTI.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
-const FACTS_URL = "/MBTIPet/SCRIPT/fact.json";
+const FACTS_URL = "../SCRIPT/fact.json";
+const SUBMIT_BUTTON = document.querySelector('#submit');
 
 // 유기견 사실들을 저장할 배열
 let facts = [];
@@ -31,4 +32,17 @@ refreshButton.addEventListener("click", function () {
   renderRandomFact();
 });
 
-// JSON 파일에서 유기견 사실들을 불러옵니다.
+SUBMIT_BUTTON.addEventListener('click', () => {
+  // const form = document.querySelector('#form');
+  // const formData = new FormData(form);
+  // const xhr = new XMLHttpRequest();
+  // xhr.open('POST', '/submit.php');
+  // xhr.send(formData);
+
+  goToNextPage();
+  
+})
+
+function goToNextPage() {
+  window.location.href = 'dog_result.html';
+}
