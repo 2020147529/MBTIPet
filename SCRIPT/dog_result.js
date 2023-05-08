@@ -29,9 +29,11 @@ function updateSectionInfo(mbtiString) {
 }
 
 document.querySelector("#reselectMBTI").addEventListener("click", () => {
-  backToMBTISelect();
+  window.location.href = "input_MBTI.html";
 });
 
-function backToMBTISelect() {
-  window.location.href = "input_MBTI.html";
-}
+
+document.querySelector('#search').addEventListener('click', () => {
+  window.location.href = "map.html";
+})
+
