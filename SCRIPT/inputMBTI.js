@@ -38,7 +38,7 @@ SUBMIT_BUTTON.addEventListener('click', () => {
   // const xhr = new XMLHttpRequest();
   // xhr.open('POST', '/submit.php');
   // xhr.send(formData);
-  mbti = "enfp" //예시
+  let mbti = "enfp" //예시
   goToNextPage(mbti);
 })
 
