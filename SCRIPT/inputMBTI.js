@@ -38,11 +38,11 @@ SUBMIT_BUTTON.addEventListener('click', () => {
   // const xhr = new XMLHttpRequest();
   // xhr.open('POST', '/submit.php');
   // xhr.send(formData);
-
-  goToNextPage();
-  
+  mbti = "enfp" //예시
+  goToNextPage(mbti);
 })
 
-function goToNextPage() {
-  window.location.href = 'dog_result.html';
+function goToNextPage(mbtiString) {
+  if(mbtiString)
+    window.location.href = `dog_result.html?${mbtiString}`;    
 }
