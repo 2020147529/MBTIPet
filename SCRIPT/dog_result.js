@@ -1,21 +1,12 @@
-document
-  .querySelector("#reselectMBTI")
-  .addEventListener("click", () => updateMBTI());
+let recievedMBTI = location.href.split('?')[1] // url에 있는 mbti값을 받음(1페이지에서 전송)  
 
-updateSectionInfo();
-
-function updateMBTI() {
-  //새로운 MBTI 값에 따른 메인 컨텐츠 업데이트
-  let mbti = "promptNewMBTI();"; //todo
-
-  updateSectionInfo(mbti);
-}
+updateSectionInfo(recievedMBTI);
 
 function updateSectionInfo(mbtiString) {
   //메인 컨텐츠 MBTI parameter에 맞추어 display
   // let doginfo = getDogInfo(mbtiString);
 
-  let dogName = Math.random();
+  let dogName = mbtiString + Math.random();
   let imageSource = "https://picsum.photos/500"; //todo: 추후데이터 사용
   let description = "doginfo[1]";
 
