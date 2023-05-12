@@ -1,5 +1,5 @@
 const FACTS_URL = "../SCRIPT/fact.json";
-const SUBMIT_BUTTON = document.querySelector('#submit');
+const SUBMIT_BUTTON = document.querySelector("#submit");
 
 // 유기견 사실들을 저장할 배열
 let facts = [];
@@ -32,17 +32,17 @@ refreshButton.addEventListener("click", function () {
   renderRandomFact();
 });
 
-SUBMIT_BUTTON.addEventListener('click', () => {
+SUBMIT_BUTTON.addEventListener("click", () => {
   // const form = document.querySelector('#form');
   // const formData = new FormData(form);
   // const xhr = new XMLHttpRequest();
   // xhr.open('POST', '/submit.php');
   // xhr.send(formData);
-  let mbti = "enfp" //예시
+  const selectbox = document.querySelector("#mbti");
+  const mbti = selectbox.options[selectbox.selectedIndex].value;
   goToNextPage(mbti);
-})
+});
 
 function goToNextPage(mbtiString) {
-  if(mbtiString)
-    window.location.href = `dog_result.html?${mbtiString}`;    
+  if (mbtiString) window.location.href = `dog_result.html?${mbtiString}`;
 }
