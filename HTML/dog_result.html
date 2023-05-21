@@ -5,19 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MBTI PET</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../CSS/dog_result.css" />
 
 </head>
 <body>
+    <header>
+        <div class="header">
+            <span class="header-text"><a href="input_MBTI.html">MBTI Pet</a><span>
+        </div>
+    </header>
     <main>
         <h1>나와 궁합이 잘 맞는 강아지는?</h1>
         <div id="dogresult"><!-- content --></div>
-        <div class="button_container">
-            <button id="reselectMBTI" class="submit">MBTI 다시 입력하기</button>
-            <button class="submit" id="search">유기견 센터 알아보기</button>
-        </div>
     </main>
+    <div class="button-container">
+        <button class="submit" id="reselectMBTI">MBTI 다시 입력하기</button>
+        <button class="submit" id="search">유기견 센터 알아보기</button>
+    </div>
     <script src="../SCRIPT/dog_result.js"></script>
 </body>
 </html>

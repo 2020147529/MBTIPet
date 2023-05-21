@@ -44,5 +44,8 @@ SUBMIT_BUTTON.addEventListener("click", () => {
 });
 
 function goToNextPage(mbtiString) {
-  if (mbtiString) window.location.href = `dog_result.html?${mbtiString}`;
+  if (mbtiString) {
+    window.location.href = `dog_result.html?${mbtiString}`;
+    
+  }
 }
