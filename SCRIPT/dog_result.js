@@ -6,7 +6,7 @@ function updateSectionInfo(mbtiString) {
   //메인 컨텐츠 MBTI parameter에 맞추어 display
   // let doginfo = getDogInfo(mbtiString);
 
-  let dogName = mbtiString + Math.random();
+  let dogName = mbtiString ;
   let imageSource = "https://picsum.photos/500"; //todo: 추후데이터 사용
   let description = "doginfo[1]";
 
@@ -27,4 +27,5 @@ document.querySelector("#reselectMBTI").addEventListener("click", () => {
 document.querySelector('#search').addEventListener('click', () => {
   window.location.href = "map.html";
 })
+
 
