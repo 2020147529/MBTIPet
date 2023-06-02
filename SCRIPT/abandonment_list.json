@@ -1,0 +1,241 @@
+{
+ "_declaration": {
+  "_attributes": {
+   "version": "1.0",
+   "encoding": "UTF-8",
+   "standalone": "yes"
+  }
+ },
+ "response": {
+  "header": {
+   "reqNo": {
+    "_text": "149243592"
+   },
+   "resultCode": {
+    "_text": "00"
+   },
+   "resultMsg": {
+    "_text": "NORMAL SERVICE."
+   }
+  },
+  "body": {
+   "items": {
+    "item": [
+     {
+      "desertionNo": {
+       "_text": "448528202300860"
+      },
+      "filename": {
+       "_text": "http://www.animal.go.kr/files/shelter/2023/05/202306021106489[1]_s.jpg"
+      },
+      "happenDt": {
+       "_text": "20230602"
+      },
+      "happenPlace": {
+       "_text": "북성로 233 주변"
+      },
+      "kindCd": {
+       "_text": "[개] 믹스견"
+      },
+      "colorCd": {
+       "_text": "연갈색"
+      },
+      "age": {
+       "_text": "2022(년생)"
+      },
+      "weight": {
+       "_text": "5(Kg)"
+      },
+      "noticeNo": {
+       "_text": "경남-창원2-2023-00177"
+      },
+      "noticeSdt": {
+       "_text": "20230602"
+      },
+      "noticeEdt": {
+       "_text": "20230612"
+      },
+      "popfile": {
+       "_text": "http://www.animal.go.kr/files/shelter/2023/05/202306021106489[1].jpg"
+      },
+      "processState": {
+       "_text": "보호중"
+      },
+      "sexCd": {
+       "_text": "M"
+      },
+      "neuterYn": {
+       "_text": "N"
+      },
+      "specialMark": {
+       "_text": "목줄착용, 순하고 사람잘따름, 다리가 긴편임"
+      },
+      "careNm": {
+       "_text": "마산유기동물보호소"
+      },
+      "careTel": {
+       "_text": "055-225-5701"
+      },
+      "careAddr": {
+       "_text": "경상남도 창원시 마산합포구 진북면 지산2길 139-112 226-19"
+      },
+      "orgNm": {
+       "_text": "경상남도 창원시 마산합포회원구"
+      },
+      "chargeNm": {
+       "_text": "창원시마산합포회원구"
+      },
+      "officetel": {
+       "_text": "055-225-5701"
+      }
+     },
+     {
+      "desertionNo": {
+       "_text": "447520202300231"
+      },
+      "filename": {
+       "_text": "http://www.animal.go.kr/files/shelter/2023/05/202306021006997_s.jpg"
+      },
+      "happenDt": {
+       "_text": "20230602"
+      },
+      "happenPlace": {
+       "_text": "다산면 다산산단로"
+      },
+      "kindCd": {
+       "_text": "[고양이] 한국 고양이"
+      },
+      "colorCd": {
+       "_text": "흰색, 황색"
+      },
+      "age": {
+       "_text": "2023(60일미만)(년생)"
+      },
+      "weight": {
+       "_text": "0.20(Kg)"
+      },
+      "noticeNo": {
+       "_text": "경북-고령-2023-00129"
+      },
+      "noticeSdt": {
+       "_text": "20230602"
+      },
+      "noticeEdt": {
+       "_text": "20230612"
+      },
+      "popfile": {
+       "_text": "http://www.animal.go.kr/files/shelter/2023/05/202306021006997.jpeg"
+      },
+      "processState": {
+       "_text": "보호중"
+      },
+      "sexCd": {
+       "_text": "Q"
+      },
+      "neuterYn": {
+       "_text": "N"
+      },
+      "specialMark": {
+       "_text": "새끼고양이 4마리 동시 구조"
+      },
+      "careNm": {
+       "_text": "고령군 임시보호소"
+      },
+      "careTel": {
+       "_text": "010-8589-9575"
+      },
+      "careAddr": {
+       "_text": "경상북도 고령군 운수면 하법길 37 (운수면) "
+      },
+      "orgNm": {
+       "_text": "경상북도 고령군"
+      },
+      "chargeNm": {
+       "_text": "고령군"
+      },
+      "officetel": {
+       "_text": "054-950-7473"
+      }
+     },
+     {
+      "desertionNo": {
+       "_text": "447520202300230"
+      },
+      "filename": {
+       "_text": "http://www.animal.go.kr/files/shelter/2023/05/20230602090611_s.jpg"
+      },
+      "happenDt": {
+       "_text": "20230602"
+      },
+      "happenPlace": {
+       "_text": "다산면 다산산단로"
+      },
+      "kindCd": {
+       "_text": "[고양이] 한국 고양이"
+      },
+      "colorCd": {
+       "_text": "흰색, 검은색"
+      },
+      "age": {
+       "_text": "2023(60일미만)(년생)"
+      },
+      "weight": {
+       "_text": "0.20(Kg)"
+      },
+      "noticeNo": {
+       "_text": "경북-고령-2023-00128"
+      },
+      "noticeSdt": {
+       "_text": "20230602"
+      },
+      "noticeEdt": {
+       "_text": "20230612"
+      },
+      "popfile": {
+       "_text": "http://www.animal.go.kr/files/shelter/2023/05/20230602090611.jpeg"
+      },
+      "processState": {
+       "_text": "종료(자연사)"
+      },
+      "sexCd": {
+       "_text": "Q"
+      },
+      "neuterYn": {
+       "_text": "N"
+      },
+      "specialMark": {
+       "_text": "새끼고양이 4마리 동시 구조"
+      },
+      "careNm": {
+       "_text": "고령군 임시보호소"
+      },
+      "careTel": {
+       "_text": "010-8589-9575"
+      },
+      "careAddr": {
+       "_text": "경상북도 고령군 운수면 하법길 37 (운수면) "
+      },
+      "orgNm": {
+       "_text": "경상북도 고령군"
+      },
+      "chargeNm": {
+       "_text": "고령군"
+      },
+      "officetel": {
+       "_text": "054-950-7473"
+      }
+     }
+    ]
+   },
+   "numOfRows": {
+    "_text": "3"
+   },
+   "pageNo": {
+    "_text": "1"
+   },
+   "totalCount": {
+    "_text": "11188"
+   }
+  }
+ }
+}
