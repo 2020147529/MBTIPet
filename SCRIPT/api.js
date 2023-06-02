@@ -4,6 +4,11 @@ queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent(
 queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
 queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent(' ');
 
+
+let receivedDog = location.href.split('?')[1]; // url에 있는 mbti값을 받음(1페이지에서 전송)
+
+console.log(receivedDog)
+
 fetch(url + queryParams)
   .then(function(response) {
     return response.text();
@@ -17,11 +22,12 @@ fetch(url + queryParams)
     var imageContainer = document.getElementById('image-container');
     var counter = 0; // Counter for limiting the number of displayed items
 
+
     for (var i = 0; i < items.length; i++) {
       var item = items[i];
       var kindCd = item.querySelector('kindCd').textContent; //kindCd 가 들어오면 확인
 
-      if (kindCd === "[개] 포메라니안") {
+      if (receivedDog) {
         var happenDt = item.querySelector('happenDt').textContent;
         var popfile = item.querySelector('popfile').textContent; // Retrieve the popfile value
         var colorCd = item.querySelector('colorCd').textContent;
