@@ -1,4 +1,4 @@
-//현재 정보 띄워주기
+
 navigator.geolocation.getCurrentPosition(function (pos) {
 	map = new naver.maps.Map('map', {
 	  center: new naver.maps.LatLng(36.31175, 127.3754709),
@@ -10,23 +10,14 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 	console.log(latitude, longitude);
 
 
-	var centerLocation= new naver.maps.LatLng(latitude, longitude);
-	var fixedPosition = new naver.maps.LatLng(36.31175, 127.3754709); // Replace with your desired fixed position
-
-  	var distance = naver.maps.Geometry.distance(centerLocation, fixedPosition);
-
-	console.log('Current Location:', latitude, longitude);
-	console.log('Fixed Position:', fixedPosition.lat(), fixedPosition.lng());
-	console.log('Distance:', distance.toFixed(2), 'meters');
-
-
+	var centerlocation = new naver.maps.LatLng(latitude, longitude);
 	var markers = [];
 	var infowindows = [];
 
 	//사용자의 위치를 기본 마커로 표시합니다.
 	markers.push(new naver.maps.Marker({
 	  map: map,
-	  position: currentLocation,
+	  position: centerlocation,
 
 	}))
 
