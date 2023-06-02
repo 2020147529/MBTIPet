@@ -5,7 +5,7 @@ let recievedMBTI = location.href.split('?')[1]; // url에 있는 mbti값을 받�
   const data_mbtitodog = await fetchjson("../SCRIPT/mbtito16.json");
 
   updateSectionInfo(data_mbtitodog, recievedMBTI);
-
+  var dognameglobal = data_mbtitodog[mbtiString].species;
 })();//메인 실행부
 
 async function fetchjson(url){
@@ -37,9 +37,8 @@ document.querySelector("#reselectMBTI").addEventListener("click", () => {
 });
 
 
-document.querySelector('#search').addEventListener('click', () => {
-  if(dogName === "푸들") {window.location.href = `map.html?dogName=${dogName}`;}
-});
+document.querySelector('#search').addEventListener('click', () =>
+ {window.location.href = `map.html?dogName=${dognameglobal}`;});
 
 
 /*
