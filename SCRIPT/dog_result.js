@@ -1,10 +1,17 @@
 let recievedMBTI = location.href.split('?')[1]; // url에 있는 mbti값을 받음(1페이지에서 전송)
 
-(async function (){
+(async function (){ //this function is self calling
 
   const data_mbtitodog = await fetchjson("../SCRIPT/mbtito16.json");
+  //is a js object {infj:{species:"진돗개", ... }, ...}
 
   updateSectionInfo(data_mbtitodog, recievedMBTI);
+  
+  const dogName = data_mbtitodog[recievedMBTI].species  
+  // ex) 진돗개
+  document.querySelector('#search').addEventListener('click', () => {
+    window.location.href = `map.html?dogName=[개] ${dogName}`;
+  });
 
 })();//메인 실행부
 
@@ -14,10 +21,8 @@ async function fetchjson(url){
   return data
 }
 
-let dogName = ""; // Define the dogName variable in a higher scope
 function updateSectionInfo(data_mbtitodog, mbtiString) {
   //메인 컨텐츠 MBTI parameter에 맞추어 display
-  // let doginfo = getDogInfo(mbtiString);
   let data = data_mbtitodog[mbtiString]
   dogName = data.species ;
   let imageSource = "../IMAGE/"+dogName+".jpg"; //저장된 이미지 사용
@@ -36,10 +41,6 @@ document.querySelector("#reselectMBTI").addEventListener("click", () => {
   window.location.href = "input_MBTI.html";
 });
 
-
-document.querySelector('#search').addEventListener('click', () => {
-  window.location.href = `map.html?dogName=${dogName}`;
-});
 
 
 /*
