@@ -8,6 +8,7 @@ body {
 }
 
 main {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,6 +44,7 @@ main {
 
 #dogresult {
     display: flex;
+    width: 70%;
     border: solid 1px black;
     border-radius: 10px;
     flex-direction: column;
@@ -114,6 +116,6 @@ main {
     width:80%;
   }
   .imgcontainer img{
-      width:100%;
+      width:80%;
       border-radius:10%;
   }
