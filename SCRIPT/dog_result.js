@@ -38,7 +38,7 @@ document.querySelector("#reselectMBTI").addEventListener("click", () => {
 
 
 document.querySelector('#search').addEventListener('click', () => {
-  if(dogName === "푸들") {window.location.href = `map.html?dogName=${dogName}`;}
+  window.location.href = `map.html?dogName=${dogName}`;
 });
 
 

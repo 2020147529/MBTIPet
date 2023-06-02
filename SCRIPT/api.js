@@ -4,7 +4,6 @@ queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent(
 queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
 queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent(' ');
 
-
 let receivedDog = location.href.split('?')[1]; // url에 있는 mbti값을 받음(1페이지에서 전송)
 
 console.log(receivedDog)
@@ -27,7 +26,7 @@ fetch(url + queryParams)
       var item = items[i];
       var kindCd = item.querySelector('kindCd').textContent; //kindCd 가 들어오면 확인
 
-      if (receivedDog) {
+      if (kindCd === receivedDog) {
         var happenDt = item.querySelector('happenDt').textContent;
         var popfile = item.querySelector('popfile').textContent; // Retrieve the popfile value
         var colorCd = item.querySelector('colorCd').textContent;
@@ -52,7 +51,7 @@ fetch(url + queryParams)
 
         var imageElement = document.createElement('img');
         imageElement.src = popfile;
-        imageElement.alt = "image of the animal";
+        imageElement.alt = "유기견 이미지";
 
         // Set the size of the image using CSS
         imageElement.style.width = "200px"; // Set the desired width
@@ -63,17 +62,20 @@ fetch(url + queryParams)
         counter++; // Increment the counter
 
         if (counter === 1) {
-          // Break the loop once 5 items are displayed
           break;
         }
       }
     }
 
     var textContainer = document.getElementById('text-container');
+    if (htmlContent === "") {
+        htmlContent += "<p> 유기견을 찾을 수 없습니다. 다시 시도하세요. </p>"
+    }
+
     if (textContainer) {
-      textContainer.innerHTML = htmlContent;
+        textContainer.innerHTML = htmlContent;
     } else {
-      console.log("Error: Element with id 'text-container' not found.");
+        textContainer.innerHTML = "Error: Element with id 'text-container' not found.";
     }
   })
   .catch(function(error) {
