@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <link href="../CSS/map.css" type="text/css" rel="stylesheet" />
-    <script src="../SCRIPT/api.js"> </script>
+
   </head>
   <body>
     <div class="header">
@@ -19,7 +19,9 @@
     </div>
     <div class="inner">
       <div id="profile-container">
+        <script type = "module" src="../SCRIPT/api.js"> </script>
         <div id="profile-title">당신과 잘 맞는 유기견 친구는?</div>
+
         <div id="profile-card">
           <div id="text-container"> </div>
 
@@ -32,7 +34,7 @@
         <div id="map-title">가까운 유기견보호센터 찾기</div>
         <div id="map" style="width:500px;height:400px;"> </div>
         <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=7wlont75cn"></script>
-        <script src="../SCRIPT/map.js"> </script>
+        <script type = "module" src="../SCRIPT/map.js"> </script>
       </div>
 
   </body>

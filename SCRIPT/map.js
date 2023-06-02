@@ -1,3 +1,13 @@
+window.addEventListener('addressReady', function() {
+	// window.address = 보호소 주소
+
+	console.log(window.address);
+
+
+
+
+});
+
 
 navigator.geolocation.getCurrentPosition(function (pos) {
 	map = new naver.maps.Map('map', {

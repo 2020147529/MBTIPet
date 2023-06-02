@@ -6,8 +6,6 @@ queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent(' ')
 
 let receivedDog = location.href.split('?')[1]; // url에 있는 mbti값을 받음(1페이지에서 전송)
 
-console.log(receivedDog)
-
 fetch(url + queryParams)
   .then(function(response) {
     return response.text();
@@ -26,17 +24,17 @@ fetch(url + queryParams)
       var item = items[i];
       var kindCd = item.querySelector('kindCd').textContent; //kindCd 가 들어오면 확인
 
-      if (kindCd === receivedDog) {
+      if (kindCd === "[개] 푸들") {
         var happenDt = item.querySelector('happenDt').textContent;
-        var popfile = item.querySelector('popfile').textContent; // Retrieve the popfile value
+        var popfile = item.querySelector('popfile').textContent;
         var colorCd = item.querySelector('colorCd').textContent;
-        var age = item.querySelector('age').textContent; // Retrieve the popfile value
+        var age = item.querySelector('age').textContent;
         var sexCd = item.querySelector('sexCd').textContent;
-        var specialMark = item.querySelector('specialMark').textContent; // Retrieve the popfile value
+        var specialMark = item.querySelector('specialMark').textContent;
         var careNm = item.querySelector('careNm').textContent;
-        var careTel = item.querySelector('careTel').textContent; // Retrieve the popfile value
-        var careAddr = item.querySelector('careAddr').textContent; // Retrieve the popfile value
-
+        var careTel = item.querySelector('careTel').textContent;
+        var careAddr = item.querySelector('careAddr').textContent;
+        window.address = careAddr;
 
         htmlContent += "<p>발견 날짜: " + happenDt + "</p>";
         htmlContent += "<p>종: " + kindCd + "</p>";
@@ -77,6 +75,10 @@ fetch(url + queryParams)
     } else {
         textContainer.innerHTML = "Error: Element with id 'text-container' not found.";
     }
+    // Trigger an event to notify that the 'address' variable is ready
+    var event = new Event('addressReady');
+    window.dispatchEvent(event);
+
   })
   .catch(function(error) {
     console.log("Error:", error);
