@@ -21,7 +21,7 @@ fetch(url + queryParams)
       var item = items[i];
       var kindCd = item.querySelector('kindCd').textContent; //kindCd 가 들어오면 확인
 
-      if (kindCd === "[개] 시바") {
+      if (kindCd === "[개] 포메라니안") {
         var happenDt = item.querySelector('happenDt').textContent;
         var popfile = item.querySelector('popfile').textContent; // Retrieve the popfile value
         var colorCd = item.querySelector('colorCd').textContent;
@@ -73,33 +73,3 @@ fetch(url + queryParams)
   .catch(function(error) {
     console.log("Error:", error);
   });
-
-/*
-for (var i = 0; i < items.length; i++) {
-  var item = items[i];
-
-  var filename = item.filename._text;
-  var happenDt = item.happenDt._text;
-  var kindCd = item.kindCd._text;
-  var colorCd = item.colorCd._text;
-  var age = item.age._text;
-  var weight = item.weight._text;
-  var sexCd = item.sexCd._text;
-  var specialMark = item.specialMark._text;
-  var careNm = item.careNm._text;
-  var careTel = item.careTel._text;
-  var careAddr = item.careAddr._text;
-
-  console.log('Filename:', filename);
-  console.log('Happen Date:', happenDt);
-  console.log('Kind:', kindCd);
-  console.log('Color:', colorCd);
-  console.log('Age:', age);
-  console.log('Weight:', weight);
-  console.log('Sex:', sexCd);
-  console.log('Special Mark:', specialMark);
-  console.log('Care Name:', careNm);
-  console.log('Care Telephone:', careTel);
-  console.log('Care Address:', careAddr);
-}
-*/
