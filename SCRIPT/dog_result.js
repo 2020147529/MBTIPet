@@ -18,7 +18,7 @@ let dogName = ""; // Define the dogName variable in a higher scope
 function updateSectionInfo(data_mbtitodog, mbtiString) {
   //메인 컨텐츠 MBTI parameter에 맞추어 display
   // let doginfo = getDogInfo(mbtiString);
-  let data = data_mbtitodog[mbtiString]
+  let data = data_mbtitodog[recievedMBTI]
   dogName = data.species ;
   let imageSource = "../IMAGE/"+dogName+".jpg"; //저장된 이미지 사용
   let description = mbtiString.toUpperCase() +":"+data.info;
