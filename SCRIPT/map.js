@@ -10,7 +10,7 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 	console.log(latitude, longitude);
 
 
-	var currentLocation = new naver.maps.LatLng(latitude, longitude);
+	var centerLocation= new naver.maps.LatLng(latitude, longitude);
 	var fixedPosition = new naver.maps.LatLng(36.31175, 127.3754709); // Replace with your desired fixed position
 
   	var distance = naver.maps.Geometry.distance(centerLocation, fixedPosition);
