@@ -25,7 +25,8 @@ function updateSectionInfo(data_mbtitodog, mbtiString) {
   //메인 컨텐츠 MBTI parameter에 맞추어 display
   let data = data_mbtitodog[mbtiString]
   dogName = data.species ;
-  let imageSource = "../IMAGE/"+dogName+".jpg"; //저장된 이미지 사용
+  let imageSource = "../IMAGE/"+dogName+".jpg";
+  // 저장된 이미지 파일 이름이 json파일 species value 일치해야 html에 정상적으로 출력됨. 예) 진도견.jpg
   let description = mbtiString.toUpperCase() +":"+data.info;
 
   let result = `<h2>${dogName}</h2>
@@ -44,7 +45,7 @@ document.querySelector("#reselectMBTI").addEventListener("click", () => {
 
 
 /*
-[개] 진도견
+[개] 진도견 
 [개] 비숑 프리제
 [개] 잭 러셀 테리어
 [개] 시베리안 허스키

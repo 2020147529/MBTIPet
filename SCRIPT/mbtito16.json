@@ -1,18 +1,18 @@
 {
-    "infj":{"species":"진돗개","info":"text~"},
+    "infj":{"species":"진도견","info":"text~"},
     "intj":{"species":"잭 러셀 테리어","info":"text~"},
-    "istp":{"species":"비숑프리제","info":"text"},
+    "istp":{"species":"비숑 프리제","info":"text"},
     "istj":{"species":"시베리안 허스키","info":"text"},
     "intp":{"species":"비글","info":"text"},
-    "isfj":{"species":"슈나우저","info":"text"},
-    "isfp":{"species":"시바견","info":"text"},
+    "isfj":{"species":"슈나우져","info":"text"},
+    "isfp":{"species":"시바","info":"text"},
     "infp":{"species":"푸들","info":"text"},
-    "entp":{"species":"프렌치 불도그","info":"text"},
-    "estp":{"species":"레브라도 리트리버","info":"text"},
-    "estj":{"species":"보더콜리","info":"text"},
+    "entp":{"species":"프렌치 불독","info":"text"},
+    "estp":{"species":"라브라도 리트리버","info":"text"},
+    "estj":{"species":"보더 콜리","info":"text"},
     "entj":{"species":"셰퍼드","info":"text"},
     "enfp":{"species":"퍼그","info":"text"},
     "esfj":{"species":"닥스훈트","info":"text"},
     "enfj":{"species":"골든 리트리버","info":"text"},
-    "esfp":{"species":"웰시코기","info":"text"}
+    "esfp":{"species":"웰시 코기 카디건","info":"text"}
 }
