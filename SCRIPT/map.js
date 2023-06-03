@@ -1,7 +1,7 @@
 window.addEventListener('addressReady', function() {
 	// window.address = 보호소 주소
-
-	console.log(window.address);
+	var address = window.address;
+	console.log(address);
 
 
 
