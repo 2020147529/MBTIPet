@@ -7,7 +7,35 @@ queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent(' ')
 let receivedDog = location.href.split('?')[1]; // url에 있는 mbti값을 받음(1페이지에서 전송)
 
 receivedDog = decodeURI(receivedDog).trim()
-console.log(receivedDog)
+
+function geocodeAndCompare(item, receivedDog, centerlocation) {
+  var kindCd = item.querySelector('kindCd').textContent;
+  var careAddr = item.querySelector('careAddr').textContent;
+
+  return new Promise(function(resolve, reject) {
+    naver.maps.Service.geocode({ address: careAddr }, function(status, response) {
+      if (status !== naver.maps.Service.Status.OK) {
+        reject('Geocoding error: ' + status);
+      }
+
+      var result = response.result;
+      if (result.items.length > 1) {
+        var points = result.items[1].point;
+
+        var distance = calculateDistance(centerlocation.lat(), centerlocation.lng(), points.y, points.x);
+        console.log('Distance:', distance);
+
+        if (kindCd === receivedDog) {
+          resolve({ item: item, distance: distance });
+        } else {
+          resolve(null);
+        }
+      } else {
+        reject('Geocoding error: no points found');
+      }
+    });
+  });
+}
 
 navigator.geolocation.getCurrentPosition(function (pos) {
   var latitude = pos.coords.latitude;
@@ -26,62 +54,29 @@ navigator.geolocation.getCurrentPosition(function (pos) {
       var htmlContent = "";
       var imageContainer = document.getElementById('image-container');
 
-      var promises = []; // Array to store the distance calculation promises
-      var closestItem = null; // Variable to store the item with the closest distance
-      var closestDistance = Infinity; // Initialize with a large value to find the minimum distance
-
+      var promises = [];
+      var closestItem = null;
+      var closestDistance = Infinity;
 
       for (var i = 0; i < items.length; i++) {
         var item = items[i];
+
         var kindCd = item.querySelector('kindCd').textContent;
-
         if (kindCd === receivedDog) {
-          console.log(kindCd)
-          var careAddr = item.querySelector('careAddr').textContent;
-
-          var promise = new Promise(function (resolve, reject) {
-            naver.maps.Service.geocode({address: careAddr }, function (status, response) {
-              if (status !== naver.maps.Service.Status.OK) {
-                reject('Geocoding error: ' + status);
-              }
-
-              var result = response.result;
-              if (result.items.length > 1) {
-                var points = result.items[1].point;
-
-
-                var distance = calculateDistance(centerlocation.lat(), centerlocation.lng(), points.y, points.x);
-                console.log('Distance:', distance);
-                console.log(item)
-
-                if (distance < closestDistance) {
-                  closestDistance = distance;
-                  closestItem = item;
-                }
-
-                resolve({ item: item, distance: distance });
-              } else {
-                reject('Geocoding error: no points found');
-              }
-            });
-          });
-
-          promises.push(promise);
+          promises.push(geocodeAndCompare(item, receivedDog, centerlocation));
         }
       }
 
-      // Wait for all distance calculations to complete
       Promise.all(promises)
         .then(function(results) {
           results.forEach(function(result) {
-            var item = result.item;
-            var distance = result.distance;
-
+            if (result && result.distance < closestDistance) {
+              closestDistance = result.distance;
+              closestItem = result.item;
+            }
           });
 
           if (closestItem) {
-            // Retrieve the necessary information from the closest item
-            console.log(closestItem)
             var happenDt = closestItem.querySelector('happenDt').textContent;
             var kindCd = closestItem.querySelector('kindCd').textContent;
             var colorCd = closestItem.querySelector('colorCd').textContent;
@@ -95,6 +90,7 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 
             window.address = careAddr;
             window.image = popfile;
+            window.distance = closestDistance;
 
             htmlContent += "<p>발견 날짜: " + happenDt + "</p>";
             htmlContent += "<p>종: " + kindCd + "</p>";
@@ -110,30 +106,24 @@ navigator.geolocation.getCurrentPosition(function (pos) {
             var imageElement = document.createElement('img');
             imageElement.src = popfile;
             imageElement.alt = "유기견 이미지";
-
-            // Set the size of the image using CSS
-            imageElement.style.width = "200px"; // Set the desired width
-            imageElement.style.height = "150px"; // Set the desired height
-
-            // Append the image element to the image container
+            imageElement.style.width = "200px";
+            imageElement.style.height = "150px";
             imageContainer.appendChild(imageElement);
-
-
           } else {
             console.log('No item found matching the criteria.');
           }
 
           var textContainer = document.getElementById('text-container');
           if (htmlContent === "") {
-              htmlContent += "<p> 유기견을 찾을 수 없습니다. 다시 시도하세요. </p>"
+            htmlContent += "<p> 유기견을 찾을 수 없습니다. 다시 시도하세요. </p>"
           }
 
           if (textContainer) {
-              textContainer.innerHTML = htmlContent;
+            textContainer.innerHTML = htmlContent;
           } else {
-              textContainer.innerHTML = "Error: Element with id 'text-container' not found.";
+            textContainer.innerHTML = "Error: Element with id 'text-container' not found.";
           }
-          // Trigger an event to notify that the 'address' variable is ready
+
           var event = new Event('addressReady');
           window.dispatchEvent(event);
         })

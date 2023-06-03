@@ -1,5 +1,5 @@
 // 보호소를 지도에 띄움.
-// window.address, window.image만 사용
+// window.address : 보호소 주소 , window.image: 유기견 이미지, window.distance : 가장가까운 거리
 
 window.addEventListener('addressReady', function () {
 	navigator.geolocation.getCurrentPosition(function (pos) {
@@ -22,6 +22,7 @@ window.addEventListener('addressReady', function () {
 		  position: centerlocation
 		})
 	  );
+
 
 	  // 사용자의 위치에 창을 표시합니다.
 	  infowindows.push(
