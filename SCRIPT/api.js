@@ -23,7 +23,7 @@ navigator.geolocation.getCurrentPosition(function (pos) {
       var xmlDoc = parser.parseFromString(xmlData, 'text/xml');
       var items = xmlDoc.querySelectorAll('item');
       var htmlContent = "";
-     var imageContainer = document.getElementById('image-container');
+      var imageContainer = document.getElementById('image-container');
 
       var promises = []; // Array to store the distance calculation promises
       var closestItem = null; // Variable to store the item with the closest distance
@@ -43,13 +43,17 @@ navigator.geolocation.getCurrentPosition(function (pos) {
               }
 
               var result = response.result;
-              var points = result.items[1].points;
-              console.log(points);
+              if (result.items.length > 1) {
+                var points = result.items[1].point;
+                console.log(points);
 
-              var distance = calculateDistance(centerlocation.lat(), centerlocation.lng(), points.y, points.x);
-              console.log('Distance:', distance);
+                var distance = calculateDistance(centerlocation.lat(), centerlocation.lng(), points.y, points.x);
+                console.log('Distance:', distance);
 
-              resolve({ item: item, distance: distance });
+                resolve({ item: item, distance: distance });
+              } else {
+                reject('Geocoding error: no points found');
+              }
             });
           });
 
