@@ -40,6 +40,7 @@ fetch(url + queryParams)
         var careTel = item.querySelector('careTel').textContent;
         var careAddr = item.querySelector('careAddr').textContent;
         window.address = careAddr;
+        window.image = popfile;
 
         htmlContent += "<p>발견 날짜: " + happenDt + "</p>";
         htmlContent += "<p>종: " + kindCd + "</p>";

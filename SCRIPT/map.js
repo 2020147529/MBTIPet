@@ -1,6 +1,8 @@
 window.addEventListener('addressReady', function () {
 	// window.address = 보호소 주소
+	console.log(window.image);
 	console.log(window.address);
+	console.log(window.image);
 });
 
 navigator.geolocation.getCurrentPosition(function (pos) {
@@ -37,9 +39,9 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 		const infoimg1 = new Image();
 
 
-		markerimg1.src = "https://animal.seoul.go.kr/comm/getImage?srvcId=MEDIA&upperNo=1121&fileTy=ADOPTIMG&fileNo=8&thumbTy=L";
+		markerimg1.src = window.image;
 		//마커에 삽입될 이미지를 설정합니다.
-		infoimg1.src = "https://animal.seoul.go.kr/comm/getImage?srvcId=MEDIA&upperNo=1121&fileTy=ADOPTIMG&fileNo=8&thumbTy=L";
+		infoimg1.src = window.image;
 		//마커를 선택할 때 표시되는 창에 넣을 이미지를 설정합니다.
 
 		naver.maps.Service.geocode({ address: window.address }, function (status, response) {  //저장된 주소를 위도 경도 값으로 변환하여 지도에 표시합니다.
@@ -88,4 +90,4 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 		});
 
 
-});
+	});
