@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-window.addEventListener('addressReady', function() {
-	// window.address = 보호소 주소
-	var address = window.address;
-	console.log(address);
-=======
 window.addEventListener('addressReady', function () {
-
 	// window.address = 보호소 주소
 	console.log(window.address);
->>>>>>> 356f176811613f061db1f5931352e700ca3a193e
+});
 
-
-	navigator.geolocation.getCurrentPosition(function (pos) {
+navigator.geolocation.getCurrentPosition(function (pos) {
 		map = new naver.maps.Map('map', {
 			center: new naver.maps.LatLng(36.31175, 127.3754709),
 			zoom: 13
@@ -95,7 +87,5 @@ window.addEventListener('addressReady', function () {
 
 		});
 
-
-	})
 
 });
