@@ -43,7 +43,8 @@ navigator.geolocation.getCurrentPosition(function (pos) {
               }
 
               var result = response.result;
-              var points = result.items[0].points;
+              var points = result.items[1].points;
+              console.log(points);
 
               var distance = calculateDistance(centerlocation.lat(), centerlocation.lng(), points.y, points.x);
               console.log('Distance:', distance);
