@@ -39,7 +39,7 @@ navigator.geolocation.getCurrentPosition(function (pos) {
           var careAddr = item.querySelector('careAddr').textContent;
 
           var promise = new Promise(function(resolve, reject) {
-            naver.maps.Service.geocode({ address: careAddr }, function(status, response) {
+            naver.maps.Service.geocode({ query: careAddr }, function(status, response) {
               if (status !== naver.maps.Service.Status.OK) {
                 reject('Geocoding error: ' + status);
               }
