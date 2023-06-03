@@ -6,6 +6,11 @@ queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent(' ')
 
 let receivedDog = location.href.split('?')[1]; // url에 있는 mbti값을 받음(1페이지에서 전송)
 
+receivedDog = decodeURI(receivedDog).trim()
+
+// console.log(receivedDog === '[개] 진도견') true
+
+
 fetch(url + queryParams)
   .then(function(response) {
     return response.text();
@@ -24,7 +29,7 @@ fetch(url + queryParams)
       var item = items[i];
       var kindCd = item.querySelector('kindCd').textContent; //kindCd 가 들어오면 확인
 
-      if (kindCd === "[개] 푸들") {
+      if (kindCd === receivedDog) {
         var happenDt = item.querySelector('happenDt').textContent;
         var popfile = item.querySelector('popfile').textContent;
         var colorCd = item.querySelector('colorCd').textContent;

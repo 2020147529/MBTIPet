@@ -6,11 +6,11 @@ let recievedMBTI = location.href.split('?')[1]; // url에 있는 mbti값을 받�
   //is a js object {infj:{species:"진돗개", ... }, ...}
 
   updateSectionInfo(data_mbtitodog, recievedMBTI);
-  
-  const dogName = data_mbtitodog[recievedMBTI].species  
+
+  const dogName = data_mbtitodog[recievedMBTI].species
   // ex) 진돗개
   document.querySelector('#search').addEventListener('click', () => {
-    window.location.href = `map.html?dogName=[개] ${dogName}`;
+    window.location.href = `map.html?[개] ${dogName}`;
   });
 
 })();//메인 실행부
@@ -45,7 +45,7 @@ document.querySelector("#reselectMBTI").addEventListener("click", () => {
 
 
 /*
-[개] 진도견 
+[개] 진도견
 [개] 비숑 프리제
 [개] 잭 러셀 테리어
 [개] 시베리안 허스키
