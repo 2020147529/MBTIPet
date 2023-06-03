@@ -32,20 +32,18 @@ navigator.geolocation.getCurrentPosition(function (pos) {
       for (var i = 0; i < items.length; i++) {
         var item = items[i];
         var kindCd = item.querySelector('kindCd').textContent; //kindCd 가 들어오면 확인
-        console.log('kindCd:', kindCd);
-        console.log('receivedDog:', receivedDog);
 
         if (kindCd === receivedDog) {
           var careAddr = item.querySelector('careAddr').textContent;
 
           var promise = new Promise(function(resolve, reject) {
-            naver.maps.Service.geocode({ query: careAddr }, function(status, response) {
+            naver.maps.Service.geocode({ address: careAddr }, function(status, response) {
               if (status !== naver.maps.Service.Status.OK) {
                 reject('Geocoding error: ' + status);
               }
 
-              var result = response.result,
-              points = result.items[1].point;
+              var result = response.result;
+              var points = result.items[0].points;
 
               var distance = calculateDistance(centerlocation.lat(), centerlocation.lng(), points.y, points.x);
               console.log('Distance:', distance);
@@ -127,7 +125,6 @@ navigator.geolocation.getCurrentPosition(function (pos) {
           // Trigger an event to notify that the 'address' variable is ready
           var event = new Event('addressReady');
           window.dispatchEvent(event);
-          console.log(promises)
         })
         .catch(function(error) {
           console.log('Error:', error);
