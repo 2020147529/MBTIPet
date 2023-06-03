@@ -7,6 +7,7 @@ queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent(' ')
 let receivedDog = location.href.split('?')[1]; // url에 있는 mbti값을 받음(1페이지에서 전송)
 
 receivedDog = decodeURI(receivedDog).trim()
+console.log(receivedDog)
 
 navigator.geolocation.getCurrentPosition(function (pos) {
   var latitude = pos.coords.latitude;
@@ -29,15 +30,17 @@ navigator.geolocation.getCurrentPosition(function (pos) {
       var closestItem = null; // Variable to store the item with the closest distance
       var closestDistance = Infinity; // Initialize with a large value to find the minimum distance
 
+
       for (var i = 0; i < items.length; i++) {
         var item = items[i];
-        var kindCd = item.querySelector('kindCd').textContent; //kindCd 가 들어오면 확인
+        var kindCd = item.querySelector('kindCd').textContent;
 
         if (kindCd === receivedDog) {
+          console.log(kindCd)
           var careAddr = item.querySelector('careAddr').textContent;
 
-          var promise = new Promise(function(resolve, reject) {
-            naver.maps.Service.geocode({ address: careAddr }, function(status, response) {
+          var promise = new Promise(function (resolve, reject) {
+            naver.maps.Service.geocode({address: careAddr }, function (status, response) {
               if (status !== naver.maps.Service.Status.OK) {
                 reject('Geocoding error: ' + status);
               }
@@ -45,10 +48,16 @@ navigator.geolocation.getCurrentPosition(function (pos) {
               var result = response.result;
               if (result.items.length > 1) {
                 var points = result.items[1].point;
-                console.log(points);
+
 
                 var distance = calculateDistance(centerlocation.lat(), centerlocation.lng(), points.y, points.x);
                 console.log('Distance:', distance);
+                console.log(item)
+
+                if (distance < closestDistance) {
+                  closestDistance = distance;
+                  closestItem = item;
+                }
 
                 resolve({ item: item, distance: distance });
               } else {
@@ -68,14 +77,11 @@ navigator.geolocation.getCurrentPosition(function (pos) {
             var item = result.item;
             var distance = result.distance;
 
-            if (distance < closestDistance) {
-              closestDistance = distance;
-              closestItem = item;
-            }
           });
 
           if (closestItem) {
             // Retrieve the necessary information from the closest item
+            console.log(closestItem)
             var happenDt = closestItem.querySelector('happenDt').textContent;
             var kindCd = closestItem.querySelector('kindCd').textContent;
             var colorCd = closestItem.querySelector('colorCd').textContent;
