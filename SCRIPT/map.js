@@ -2,8 +2,7 @@
 // window.address, window.image만 사용
 
 window.addEventListener('addressReady', function () {
-	console.log(window.address);
-	console.log(window.image)
+
 
 navigator.geolocation.getCurrentPosition(function (pos) {
 		map = new naver.maps.Map('map', {
@@ -46,7 +45,7 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 		naver.maps.Service.geocode({query: window.address }, function (status, response) {  //저장된 주소를 위도 경도 값으로 변환하여 지도에 표시합니다.
 			if (status !== naver.maps.Service.Status.OK) { return console.log('error'); }
 
-			var result = response.result, points = result.items[1].point;   //result는 geolocation을 통해 변환된 주소의 json, points는 x=경도, y=위도입니다.
+			var result = response.result, points = result.items[1].points;   //result는 geolocation을 통해 변환된 주소의 json, points는 x=경도, y=위도입니다.
 
 			//마커 삽입
 			markers.push(new naver.maps.Marker({  //유기견 보호소의 주소를 지도에 표시합니다.

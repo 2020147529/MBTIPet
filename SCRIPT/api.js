@@ -127,6 +127,7 @@ navigator.geolocation.getCurrentPosition(function (pos) {
           // Trigger an event to notify that the 'address' variable is ready
           var event = new Event('addressReady');
           window.dispatchEvent(event);
+          console.log(promises)
         })
         .catch(function(error) {
           console.log('Error:', error);
