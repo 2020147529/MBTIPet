@@ -38,7 +38,6 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 		const markerimg1 = new Image();
 		const infoimg1 = new Image();
 
-
 		markerimg1.src = window.image;
 		//마커에 삽입될 이미지를 설정합니다.
 		infoimg1.src = window.image;
@@ -73,8 +72,11 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 				].join('')
 			}))
 
-			//이상은 유기견 보호소의 정보를 표시합니다. 위와 같은 형식으로 두 배열에 정보를 삽입하면 정보가 표시됩니다.
+			// Calculate the distance between window.address and centerlocation using the Haversine formula
+			var distance = calculateDistance(centerlocation.lat(), centerlocation.lng(), points.y, points.x);
+			console.log('Distance:', distance);
 
+			//이상은 유기견 보호소의 정보를 표시합니다. 위와 같은 형식으로 두 배열에 정보를 삽입하면 정보가 표시됩니다.
 			for (let i = 0; i < infowindows.length; i++) {
 				naver.maps.Event.addListener(markers[i], "click", function (e) {
 					if (infowindows[i].getMap()) {
@@ -91,3 +93,23 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 
 
 	});
+
+
+
+	// Function to calculate the distance between two points using the Haversine formula
+function calculateDistance(lat1, lon1, lat2, lon2) {
+	const R = 6371; // Radius of the Earth in kilometers
+	const dLat = toRad(lat2 - lat1);
+	const dLon = toRad(lon2 - lon1);
+	const a =
+	  Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+	  Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+	const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	const distance = R * c;
+	return distance.toFixed(2); // Return the distance rounded to 2 decimal places
+  }
+
+  // Function to convert degrees to radians
+function toRad(degrees) {
+	return degrees * Math.PI / 180;
+}
