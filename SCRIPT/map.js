@@ -3,15 +3,16 @@
 
 window.addEventListener('addressReady', function () {
 	navigator.geolocation.getCurrentPosition(function (pos) {
-		map = new naver.maps.Map('map', {
-			center: new naver.maps.LatLng(36.31175, 127.3754709),
-			zoom: 13
-		});
-		console.log(pos);
 		var latitude = pos.coords.latitude;
 		var longitude = pos.coords.longitude;
-
 		var centerlocation = new naver.maps.LatLng(latitude, longitude);
+		map = new naver.maps.Map('map', {
+			center: new naver.maps.LatLng(latitude, longitude),
+			zoom: 9
+		});
+		console.log(pos);
+
+
 		var markers = [];
 		var infowindows = [];
 
@@ -22,7 +23,6 @@ window.addEventListener('addressReady', function () {
 				position: centerlocation
 			})
 		);
-
 
 		// 사용자의 위치에 창을 표시합니다.
 		infowindows.push(
@@ -69,13 +69,6 @@ window.addEventListener('addressReady', function () {
 				y: result.y,
 				x: result.x
 			};
-			var distance = calculateDistance(
-				centerlocation.lat(),
-				centerlocation.lng(),
-				points.y,
-				points.x
-			);
-			console.log('Distance:', distance);
 
 			// 마커 삽입
 			markers.push(
@@ -97,11 +90,15 @@ window.addEventListener('addressReady', function () {
 			infowindows.push(
 				new naver.maps.InfoWindow({
 					content: [
-						'<div class="iw_inner">',
+						'<div class="iw_inner" style="max-width:150px; text-align:center">',
 						'   <img src=',
 						infoimg1.src, // 44줄에서 이미지의 주소를 설정할 수 있습니다.
-						' width="100px">',
-						'<p>멍멍이</p>',
+						' width="100px" style="margin-top:5px">',
+						'<p>주소 : ',
+						window.address,
+						'<br>거리 : ',
+						Math.round(window.distance*100)/100,
+						'km</p>',
 						'</div>'
 					].join('')
 				})
