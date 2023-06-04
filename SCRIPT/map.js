@@ -93,8 +93,8 @@ window.addEventListener('addressReady', function () {
 						'<div class="iw_inner" style="max-width:150px; text-align:center">',
 						'   <img src=',
 						infoimg1.src, // 44줄에서 이미지의 주소를 설정할 수 있습니다.
-						' width="100px" style="margin-top:5px">',
-						'<p>주소 : ',
+						' width="100px" style="margin-top:5px; border-radius:5px; border:solid grey 1px">',
+						'<p>주소 : ',//img style
 						window.address,
 						'<br>거리 : ',
 						Math.round(window.distance*100)/100,

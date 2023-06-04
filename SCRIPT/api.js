@@ -108,6 +108,8 @@ navigator.geolocation.getCurrentPosition(function (pos) {
             imageElement.alt = "유기견 이미지";
             imageElement.style.width = "200px";
             imageElement.style.height = "150px";
+            imageElement.style.border = "black 1px solid";
+            imageElement.style.borderRadius = "10px";
             imageContainer.appendChild(imageElement);
           } else {
             console.log('No item found matching the criteria.');
