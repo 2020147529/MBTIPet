@@ -55,9 +55,10 @@ main {
 
 #dogresult>*{
     text-align: center;
+    font-size: 1.2em;
 }
 #dogresult h2{
-  font-size: 2rem;
+  font-size: 2em;
 }
 
 .submit {

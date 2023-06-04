@@ -27,7 +27,7 @@ function updateSectionInfo(data_mbtitodog, mbtiString) {
   dogName = data.species ;
   let imageSource = "../IMAGE/"+dogName+".jpg";
   // 저장된 이미지 파일 이름이 json파일 species value 일치해야 html에 정상적으로 출력됨. 예) 진도견.jpg
-  let description = mbtiString.toUpperCase() +":"+data.info;
+  let description = "\""+mbtiString.toUpperCase() +"\"<br><br>"+data.info;
 
   let result = `<h2>${dogName}</h2>
     <div class="imgcontainer">
